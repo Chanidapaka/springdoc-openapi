@@ -18,6 +18,8 @@ import sit.int204.sampleexception.exceptions.SimpleMyErrorResponseForApiDoc;
 import sit.int204.sampleexception.services.ProductService;
 import sit.int204.sampleexception.utils.ListMapper;
 
+//สำหรับจัดการคำขอ HTTP ที่เกี่ยวกับผลิตภัณฑ์ในเส้นทาง /api/products
+//โดยใช้ ProductService เพื่อดึงข้อมูลจากฐานข้อมูลและแปลงข้อมูลให้เหมาะสมกับ ProductDtoA ที่ใช้ในคำตอบ (response)
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
@@ -29,6 +31,8 @@ public class ProductController {
     protected ListMapper listMapper;
 
     @Operation(summary = "Retrive product by id such as S10_5879")
+
+    //@ApiResponses: ให้คำอธิบายของผลลัพธ์ที่อาจเกิดขึ้นในการเรียก API
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",
                     content = {
